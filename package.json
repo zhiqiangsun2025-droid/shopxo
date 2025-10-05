@@ -1,0 +1,26 @@
+{
+  "name": "mt-copy-trader",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/main/index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development electron .",
+    "build": "npm run build:ts && npm run build:native",
+    "build:ts": "tsc -p tsconfig.json",
+    "build:native": "cmake-js rebuild --directory native --out native/build",
+    "start": "electron .",
+    "postinstall": "node -e \"console.log('postinstall placeholder')\""
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "cmake-js": "^7.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.1",
+    "node-addon-api": "^8.2.1"
+  }
+}
